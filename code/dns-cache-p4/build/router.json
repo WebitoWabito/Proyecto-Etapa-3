@@ -1,0 +1,2437 @@
+{
+  "header_types" : [
+    {
+      "name" : "scalars_0",
+      "id" : 0,
+      "fields" : [
+        ["tmp", 32, false],
+        ["tmp_0", 32, false],
+        ["old_eth_src_0", 48, false],
+        ["old_ip_src_0", 32, false],
+        ["old_udp_src_0", 16, false],
+        ["metadata.cache_index", 32, false],
+        ["metadata.cache_valid_value", 1, false],
+        ["metadata.cached_ip", 32, false],
+        ["metadata.replied_from_cache", 1, false],
+        ["_padding_0", 6, false]
+      ]
+    },
+    {
+      "name" : "standard_metadata",
+      "id" : 1,
+      "fields" : [
+        ["ingress_port", 9, false],
+        ["egress_spec", 9, false],
+        ["egress_port", 9, false],
+        ["instance_type", 32, false],
+        ["packet_length", 32, false],
+        ["enq_timestamp", 32, false],
+        ["enq_qdepth", 19, false],
+        ["deq_timedelta", 32, false],
+        ["deq_qdepth", 19, false],
+        ["ingress_global_timestamp", 48, false],
+        ["egress_global_timestamp", 48, false],
+        ["mcast_grp", 16, false],
+        ["egress_rid", 16, false],
+        ["checksum_error", 1, false],
+        ["parser_error", 32, false],
+        ["priority", 3, false],
+        ["_padding", 3, false]
+      ]
+    },
+    {
+      "name" : "ethernet_t",
+      "id" : 2,
+      "fields" : [
+        ["dstAddr", 48, false],
+        ["srcAddr", 48, false],
+        ["etherType", 16, false]
+      ]
+    },
+    {
+      "name" : "ipv4_t",
+      "id" : 3,
+      "fields" : [
+        ["version", 4, false],
+        ["ihl", 4, false],
+        ["diffserv", 8, false],
+        ["totalLen", 16, false],
+        ["identification", 16, false],
+        ["flags", 3, false],
+        ["fragOffset", 13, false],
+        ["ttl", 8, false],
+        ["protocol", 8, false],
+        ["hdrChecksum", 16, false],
+        ["srcAddr", 32, false],
+        ["dstAddr", 32, false]
+      ]
+    },
+    {
+      "name" : "udp_t",
+      "id" : 4,
+      "fields" : [
+        ["srcPort", 16, false],
+        ["dstPort", 16, false],
+        ["length_", 16, false],
+        ["checksum", 16, false]
+      ]
+    },
+    {
+      "name" : "dns_t",
+      "id" : 5,
+      "fields" : [
+        ["id", 16, false],
+        ["qr", 1, false],
+        ["opcode", 4, false],
+        ["aa", 1, false],
+        ["tc", 1, false],
+        ["rd", 1, false],
+        ["ra", 1, false],
+        ["z", 3, false],
+        ["rcode", 4, false],
+        ["qdcount", 16, false],
+        ["ancount", 16, false],
+        ["nscount", 16, false],
+        ["arcount", 16, false]
+      ]
+    },
+    {
+      "name" : "dns_name_key_t",
+      "id" : 6,
+      "fields" : [
+        ["key", 32, false]
+      ]
+    },
+    {
+      "name" : "dns_question_rest_example_t",
+      "id" : 7,
+      "fields" : [
+        ["data", 104, false]
+      ]
+    },
+    {
+      "name" : "dns_question_rest_ucr_t",
+      "id" : 8,
+      "fields" : [
+        ["data", 88, false]
+      ]
+    },
+    {
+      "name" : "dns_question_rest_cache_t",
+      "id" : 9,
+      "fields" : [
+        ["data", 96, false]
+      ]
+    },
+    {
+      "name" : "dns_answer_t",
+      "id" : 10,
+      "fields" : [
+        ["name_ptr", 16, false],
+        ["type_", 16, false],
+        ["class_", 16, false],
+        ["ttl", 32, false],
+        ["rdlength", 16, false],
+        ["rdata", 32, false]
+      ]
+    }
+  ],
+  "headers" : [
+    {
+      "name" : "scalars",
+      "id" : 0,
+      "header_type" : "scalars_0",
+      "metadata" : true,
+      "pi_omit" : true
+    },
+    {
+      "name" : "standard_metadata",
+      "id" : 1,
+      "header_type" : "standard_metadata",
+      "metadata" : true,
+      "pi_omit" : true
+    },
+    {
+      "name" : "ethernet",
+      "id" : 2,
+      "header_type" : "ethernet_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "ipv4",
+      "id" : 3,
+      "header_type" : "ipv4_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "udp",
+      "id" : 4,
+      "header_type" : "udp_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "dns",
+      "id" : 5,
+      "header_type" : "dns_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "dns_name_key",
+      "id" : 6,
+      "header_type" : "dns_name_key_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "dns_question_rest_example",
+      "id" : 7,
+      "header_type" : "dns_question_rest_example_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "dns_question_rest_ucr",
+      "id" : 8,
+      "header_type" : "dns_question_rest_ucr_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "dns_question_rest_cache",
+      "id" : 9,
+      "header_type" : "dns_question_rest_cache_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "dns_answer",
+      "id" : 10,
+      "header_type" : "dns_answer_t",
+      "metadata" : false,
+      "pi_omit" : true
+    }
+  ],
+  "header_stacks" : [],
+  "header_union_types" : [],
+  "header_unions" : [],
+  "header_union_stacks" : [],
+  "field_lists" : [],
+  "errors" : [
+    ["NoError", 0],
+    ["PacketTooShort", 1],
+    ["NoMatch", 2],
+    ["StackOutOfBounds", 3],
+    ["HeaderTooShort", 4],
+    ["ParserTimeout", 5],
+    ["ParserInvalidArgument", 6]
+  ],
+  "enums" : [],
+  "parsers" : [
+    {
+      "name" : "parser",
+      "id" : 0,
+      "init_state" : "start",
+      "parse_states" : [
+        {
+          "name" : "start",
+          "id" : 0,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "regular",
+                  "value" : "ethernet"
+                }
+              ],
+              "op" : "extract"
+            }
+          ],
+          "transitions" : [
+            {
+              "type" : "hexstr",
+              "value" : "0x0800",
+              "mask" : null,
+              "next_state" : "parse_ipv4"
+            },
+            {
+              "type" : "default",
+              "value" : null,
+              "mask" : null,
+              "next_state" : null
+            }
+          ],
+          "transition_key" : [
+            {
+              "type" : "field",
+              "value" : ["ethernet", "etherType"]
+            }
+          ]
+        },
+        {
+          "name" : "parse_ipv4",
+          "id" : 1,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "regular",
+                  "value" : "ipv4"
+                }
+              ],
+              "op" : "extract"
+            }
+          ],
+          "transitions" : [
+            {
+              "type" : "hexstr",
+              "value" : "0x11",
+              "mask" : null,
+              "next_state" : "parse_udp"
+            },
+            {
+              "type" : "default",
+              "value" : null,
+              "mask" : null,
+              "next_state" : null
+            }
+          ],
+          "transition_key" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "protocol"]
+            }
+          ]
+        },
+        {
+          "name" : "parse_udp",
+          "id" : 2,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "regular",
+                  "value" : "udp"
+                }
+              ],
+              "op" : "extract"
+            }
+          ],
+          "transitions" : [
+            {
+              "type" : "hexstr",
+              "value" : "0x0035",
+              "mask" : null,
+              "next_state" : "parse_dns"
+            },
+            {
+              "type" : "default",
+              "value" : null,
+              "mask" : null,
+              "next_state" : null
+            }
+          ],
+          "transition_key" : [
+            {
+              "type" : "field",
+              "value" : ["udp", "dstPort"]
+            }
+          ]
+        },
+        {
+          "name" : "parse_dns",
+          "id" : 3,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "regular",
+                  "value" : "dns"
+                }
+              ],
+              "op" : "extract"
+            }
+          ],
+          "transitions" : [
+            {
+              "type" : "hexstr",
+              "value" : "0x00",
+              "mask" : null,
+              "next_state" : "parse_dns_name_key"
+            },
+            {
+              "type" : "default",
+              "value" : null,
+              "mask" : null,
+              "next_state" : null
+            }
+          ],
+          "transition_key" : [
+            {
+              "type" : "field",
+              "value" : ["dns", "qr"]
+            }
+          ]
+        },
+        {
+          "name" : "parse_dns_name_key",
+          "id" : 4,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "regular",
+                  "value" : "dns_name_key"
+                }
+              ],
+              "op" : "extract"
+            }
+          ],
+          "transitions" : [
+            {
+              "type" : "hexstr",
+              "value" : "0x07657861",
+              "mask" : null,
+              "next_state" : "parse_dns_question_rest_example"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x03756372",
+              "mask" : null,
+              "next_state" : "parse_dns_question_rest_ucr"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x05636163",
+              "mask" : null,
+              "next_state" : "parse_dns_question_rest_cache"
+            },
+            {
+              "type" : "default",
+              "value" : null,
+              "mask" : null,
+              "next_state" : null
+            }
+          ],
+          "transition_key" : [
+            {
+              "type" : "field",
+              "value" : ["dns_name_key", "key"]
+            }
+          ]
+        },
+        {
+          "name" : "parse_dns_question_rest_example",
+          "id" : 5,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "regular",
+                  "value" : "dns_question_rest_example"
+                }
+              ],
+              "op" : "extract"
+            }
+          ],
+          "transitions" : [
+            {
+              "type" : "default",
+              "value" : null,
+              "mask" : null,
+              "next_state" : null
+            }
+          ],
+          "transition_key" : []
+        },
+        {
+          "name" : "parse_dns_question_rest_ucr",
+          "id" : 6,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "regular",
+                  "value" : "dns_question_rest_ucr"
+                }
+              ],
+              "op" : "extract"
+            }
+          ],
+          "transitions" : [
+            {
+              "type" : "default",
+              "value" : null,
+              "mask" : null,
+              "next_state" : null
+            }
+          ],
+          "transition_key" : []
+        },
+        {
+          "name" : "parse_dns_question_rest_cache",
+          "id" : 7,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "regular",
+                  "value" : "dns_question_rest_cache"
+                }
+              ],
+              "op" : "extract"
+            }
+          ],
+          "transitions" : [
+            {
+              "type" : "default",
+              "value" : null,
+              "mask" : null,
+              "next_state" : null
+            }
+          ],
+          "transition_key" : []
+        }
+      ]
+    }
+  ],
+  "parse_vsets" : [],
+  "deparsers" : [
+    {
+      "name" : "deparser",
+      "id" : 0,
+      "source_info" : {
+        "filename" : "router.p4",
+        "line" : 509,
+        "column" : 8,
+        "source_fragment" : "MyDeparser"
+      },
+      "order" : ["ethernet", "ipv4", "udp", "dns", "dns_name_key", "dns_question_rest_example", "dns_question_rest_ucr", "dns_question_rest_cache", "dns_answer"],
+      "primitives" : []
+    }
+  ],
+  "meter_arrays" : [],
+  "counter_arrays" : [
+    {
+      "name" : "MyIngress.dns_query_counter",
+      "id" : 0,
+      "source_info" : {
+        "filename" : "router.p4",
+        "line" : 271,
+        "column" : 39,
+        "source_fragment" : "dns_query_counter"
+      },
+      "size" : 1024,
+      "is_direct" : false
+    },
+    {
+      "name" : "MyIngress.dns_response_counter",
+      "id" : 1,
+      "source_info" : {
+        "filename" : "router.p4",
+        "line" : 272,
+        "column" : 39,
+        "source_fragment" : "dns_response_counter"
+      },
+      "size" : 1024,
+      "is_direct" : false
+    },
+    {
+      "name" : "MyIngress.dns_hit_counter",
+      "id" : 2,
+      "source_info" : {
+        "filename" : "router.p4",
+        "line" : 274,
+        "column" : 39,
+        "source_fragment" : "dns_hit_counter"
+      },
+      "size" : 1024,
+      "is_direct" : false
+    },
+    {
+      "name" : "MyIngress.dns_miss_counter",
+      "id" : 3,
+      "source_info" : {
+        "filename" : "router.p4",
+        "line" : 275,
+        "column" : 39,
+        "source_fragment" : "dns_miss_counter"
+      },
+      "size" : 1024,
+      "is_direct" : false
+    }
+  ],
+  "register_arrays" : [
+    {
+      "name" : "MyIngress.cache_valid",
+      "id" : 0,
+      "source_info" : {
+        "filename" : "router.p4",
+        "line" : 277,
+        "column" : 27,
+        "source_fragment" : "cache_valid"
+      },
+      "size" : 1024,
+      "bitwidth" : 1
+    },
+    {
+      "name" : "MyIngress.cache_ip",
+      "id" : 1,
+      "source_info" : {
+        "filename" : "router.p4",
+        "line" : 278,
+        "column" : 30,
+        "source_fragment" : "cache_ip"
+      },
+      "size" : 1024,
+      "bitwidth" : 32
+    }
+  ],
+  "calculations" : [
+    {
+      "name" : "calc",
+      "id" : 0,
+      "source_info" : {
+        "filename" : "router.p4",
+        "line" : 484,
+        "column" : 8,
+        "source_fragment" : "update_checksum( ..."
+      },
+      "algo" : "csum16",
+      "input" : [
+        {
+          "type" : "field",
+          "value" : ["ipv4", "version"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "ihl"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "diffserv"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "totalLen"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "identification"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "flags"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "fragOffset"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "ttl"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "protocol"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "srcAddr"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "dstAddr"]
+        }
+      ]
+    }
+  ],
+  "learn_lists" : [],
+  "actions" : [
+    {
+      "name" : "NoAction",
+      "id" : 0,
+      "runtime_data" : [],
+      "primitives" : []
+    },
+    {
+      "name" : "MyIngress.drop",
+      "id" : 1,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "mark_to_drop",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "standard_metadata"
+            }
+          ],
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 281,
+            "column" : 8,
+            "source_fragment" : "mark_to_drop(standard_metadata)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyIngress.drop",
+      "id" : 2,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "mark_to_drop",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "standard_metadata"
+            }
+          ],
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 281,
+            "column" : 8,
+            "source_fragment" : "mark_to_drop(standard_metadata)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyIngress.drop",
+      "id" : 3,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "mark_to_drop",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "standard_metadata"
+            }
+          ],
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 281,
+            "column" : 8,
+            "source_fragment" : "mark_to_drop(standard_metadata)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyIngress.ipv4_forward",
+      "id" : 4,
+      "runtime_data" : [
+        {
+          "name" : "dstAddr",
+          "bitwidth" : 48
+        },
+        {
+          "name" : "srcAddr",
+          "bitwidth" : 48
+        },
+        {
+          "name" : "port",
+          "bitwidth" : 9
+        }
+      ],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ethernet", "dstAddr"]
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 0
+            }
+          ],
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 285,
+            "column" : 8,
+            "source_fragment" : "hdr.ethernet.dstAddr = dstAddr"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ethernet", "srcAddr"]
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 1
+            }
+          ],
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 286,
+            "column" : 8,
+            "source_fragment" : "hdr.ethernet.srcAddr = srcAddr"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["standard_metadata", "egress_spec"]
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 2
+            }
+          ],
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 287,
+            "column" : 8,
+            "source_fragment" : "standard_metadata.egress_spec = port"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "ttl"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "+",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["ipv4", "ttl"]
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0xff"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 288,
+            "column" : 8,
+            "source_fragment" : "hdr.ipv4.ttl = hdr.ipv4.ttl - 1"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyIngress.dns_cache_reply",
+      "id" : 5,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "old_eth_src_0"]
+            },
+            {
+              "type" : "field",
+              "value" : ["ethernet", "srcAddr"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 299,
+            "column" : 8,
+            "source_fragment" : "old_eth_src = hdr.ethernet.srcAddr"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "old_ip_src_0"]
+            },
+            {
+              "type" : "field",
+              "value" : ["ipv4", "srcAddr"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 302,
+            "column" : 8,
+            "source_fragment" : "old_ip_src = hdr.ipv4.srcAddr"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "old_udp_src_0"]
+            },
+            {
+              "type" : "field",
+              "value" : ["udp", "srcPort"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 305,
+            "column" : 8,
+            "source_fragment" : "old_udp_src = hdr.udp.srcPort"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ethernet", "srcAddr"]
+            },
+            {
+              "type" : "field",
+              "value" : ["ethernet", "dstAddr"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 313,
+            "column" : 8,
+            "source_fragment" : "hdr.ethernet.srcAddr = old_eth_dst"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ethernet", "dstAddr"]
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "old_eth_src_0"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 314,
+            "column" : 8,
+            "source_fragment" : "hdr.ethernet.dstAddr = old_eth_src"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "srcAddr"]
+            },
+            {
+              "type" : "field",
+              "value" : ["ipv4", "dstAddr"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 320,
+            "column" : 8,
+            "source_fragment" : "hdr.ipv4.srcAddr = old_ip_dst"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "dstAddr"]
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "old_ip_src_0"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 321,
+            "column" : 8,
+            "source_fragment" : "hdr.ipv4.dstAddr = old_ip_src"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["udp", "srcPort"]
+            },
+            {
+              "type" : "field",
+              "value" : ["udp", "dstPort"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 327,
+            "column" : 8,
+            "source_fragment" : "hdr.udp.srcPort = old_udp_dst"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["udp", "dstPort"]
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "old_udp_src_0"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 328,
+            "column" : 8,
+            "source_fragment" : "hdr.udp.dstPort = old_udp_src"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["dns", "qr"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x01"
+            }
+          ],
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 334,
+            "column" : 8,
+            "source_fragment" : "hdr.dns.qr = 1"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["dns", "aa"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x01"
+            }
+          ],
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 335,
+            "column" : 8,
+            "source_fragment" : "hdr.dns.aa = 1"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["dns", "tc"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00"
+            }
+          ],
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 336,
+            "column" : 8,
+            "source_fragment" : "hdr.dns.tc = 0"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["dns", "ra"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x01"
+            }
+          ],
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 337,
+            "column" : 8,
+            "source_fragment" : "hdr.dns.ra = 1"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["dns", "z"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00"
+            }
+          ],
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 338,
+            "column" : 8,
+            "source_fragment" : "hdr.dns.z = 0"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["dns", "rcode"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00"
+            }
+          ],
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 339,
+            "column" : 8,
+            "source_fragment" : "hdr.dns.rcode = 0"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["dns", "qdcount"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x0001"
+            }
+          ],
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 341,
+            "column" : 8,
+            "source_fragment" : "hdr.dns.qdcount = 1"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["dns", "ancount"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x0001"
+            }
+          ],
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 342,
+            "column" : 8,
+            "source_fragment" : "hdr.dns.ancount = 1"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["dns", "nscount"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x0000"
+            }
+          ],
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 343,
+            "column" : 8,
+            "source_fragment" : "hdr.dns.nscount = 0"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["dns", "arcount"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x0000"
+            }
+          ],
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 344,
+            "column" : 8,
+            "source_fragment" : "hdr.dns.arcount = 0"
+          }
+        },
+        {
+          "op" : "add_header",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "dns_answer"
+            }
+          ],
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 349,
+            "column" : 8,
+            "source_fragment" : "hdr.dns_answer.setValid()"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["dns_answer", "name_ptr"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0xc00c"
+            }
+          ],
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 350,
+            "column" : 8,
+            "source_fragment" : "hdr.dns_answer.name_ptr = 0xc00c"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["dns_answer", "type_"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x0001"
+            }
+          ],
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 351,
+            "column" : 8,
+            "source_fragment" : "hdr.dns_answer.type_ = 1"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["dns_answer", "class_"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x0001"
+            }
+          ],
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 352,
+            "column" : 8,
+            "source_fragment" : "hdr.dns_answer.class_ = 1"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["dns_answer", "ttl"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x0000003c"
+            }
+          ],
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 353,
+            "column" : 8,
+            "source_fragment" : "hdr.dns_answer.ttl = 60"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["dns_answer", "rdlength"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x0004"
+            }
+          ],
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 354,
+            "column" : 8,
+            "source_fragment" : "hdr.dns_answer.rdlength = 4"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["dns_answer", "rdata"]
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata.cached_ip"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 355,
+            "column" : 8,
+            "source_fragment" : "hdr.dns_answer.rdata = cached_ip"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "totalLen"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "+",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["ipv4", "totalLen"]
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0x0010"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 360,
+            "column" : 8,
+            "source_fragment" : "hdr.ipv4.totalLen = hdr.ipv4.totalLen + DNS_ANSWER_SIZE"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["udp", "length_"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "+",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["udp", "length_"]
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0x0010"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 361,
+            "column" : 8,
+            "source_fragment" : "hdr.udp.length_ = hdr.udp.length_ + DNS_ANSWER_SIZE"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["udp", "checksum"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x0000"
+            }
+          ],
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 367,
+            "column" : 8,
+            "source_fragment" : "hdr.udp.checksum = 0"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["standard_metadata", "egress_spec"]
+            },
+            {
+              "type" : "field",
+              "value" : ["standard_metadata", "ingress_port"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 372,
+            "column" : 8,
+            "source_fragment" : "standard_metadata.egress_spec = standard_metadata.ingress_port"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata.replied_from_cache"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x01"
+            }
+          ],
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 377,
+            "column" : 8,
+            "source_fragment" : "meta.replied_from_cache = 1"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "router426",
+      "id" : 6,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "count",
+          "parameters" : [
+            {
+              "type" : "counter_array",
+              "value" : "MyIngress.dns_hit_counter"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00000000"
+            }
+          ],
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 426,
+            "column" : 28,
+            "source_fragment" : "dns_hit_counter.count(0)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "router430",
+      "id" : 7,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "count",
+          "parameters" : [
+            {
+              "type" : "counter_array",
+              "value" : "MyIngress.dns_miss_counter"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00000000"
+            }
+          ],
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 430,
+            "column" : 28,
+            "source_fragment" : "dns_miss_counter.count(0)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "router411",
+      "id" : 8,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata.cache_index"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["dns_name_key", "key"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x000003ff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 411,
+            "column" : 24,
+            "source_fragment" : "meta.cache_index = hdr.dns_name_key.key & CACHE_MASK"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["dns_name_key", "key"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x000003ff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 413,
+            "column" : 65,
+            "source_fragment" : "meta.cache_index"
+          }
+        },
+        {
+          "op" : "register_read",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata.cache_valid_value"]
+            },
+            {
+              "type" : "register_array",
+              "value" : "MyIngress.cache_valid"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 413,
+            "column" : 24,
+            "source_fragment" : "cache_valid.read(meta.cache_valid_value, meta.cache_index)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_0"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["dns_name_key", "key"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x000003ff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 414,
+            "column" : 54,
+            "source_fragment" : "meta.cache_index"
+          }
+        },
+        {
+          "op" : "register_read",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata.cached_ip"]
+            },
+            {
+              "type" : "register_array",
+              "value" : "MyIngress.cache_ip"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_0"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 414,
+            "column" : 24,
+            "source_fragment" : "cache_ip.read(meta.cached_ip, meta.cache_index)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "router408",
+      "id" : 9,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "count",
+          "parameters" : [
+            {
+              "type" : "counter_array",
+              "value" : "MyIngress.dns_query_counter"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00000000"
+            }
+          ],
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 408,
+            "column" : 20,
+            "source_fragment" : "dns_query_counter.count(0)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "router441",
+      "id" : 10,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "count",
+          "parameters" : [
+            {
+              "type" : "counter_array",
+              "value" : "MyIngress.dns_response_counter"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00000000"
+            }
+          ],
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 441,
+            "column" : 20,
+            "source_fragment" : "dns_response_counter.count(0)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "router396",
+      "id" : 11,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata.replied_from_cache"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00"
+            }
+          ],
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 396,
+            "column" : 8,
+            "source_fragment" : "meta.replied_from_cache = 0"
+          }
+        }
+      ]
+    }
+  ],
+  "pipelines" : [
+    {
+      "name" : "ingress",
+      "id" : 0,
+      "source_info" : {
+        "filename" : "router.p4",
+        "line" : 267,
+        "column" : 8,
+        "source_fragment" : "MyIngress"
+      },
+      "init_table" : "tbl_router396",
+      "tables" : [
+        {
+          "name" : "tbl_router396",
+          "id" : 0,
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 396,
+            "column" : 32,
+            "source_fragment" : "="
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [11],
+          "actions" : ["router396"],
+          "base_default_next" : "node_3",
+          "next_tables" : {
+            "router396" : "node_3"
+          },
+          "default_entry" : {
+            "action_id" : 11,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_router408",
+          "id" : 1,
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 408,
+            "column" : 20,
+            "source_fragment" : "dns_query_counter.count(0)"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [9],
+          "actions" : ["router408"],
+          "base_default_next" : "node_7",
+          "next_tables" : {
+            "router408" : "node_7"
+          },
+          "default_entry" : {
+            "action_id" : 9,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_router411",
+          "id" : 2,
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 411,
+            "column" : 41,
+            "source_fragment" : "= hdr.dns_name_key.key & CACHE_MASK; ..."
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [8],
+          "actions" : ["router411"],
+          "base_default_next" : "node_9",
+          "next_tables" : {
+            "router411" : "node_9"
+          },
+          "default_entry" : {
+            "action_id" : 8,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_router426",
+          "id" : 3,
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 426,
+            "column" : 28,
+            "source_fragment" : "dns_hit_counter.count(0)"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [6],
+          "actions" : ["router426"],
+          "base_default_next" : "tbl_dns_cache_reply",
+          "next_tables" : {
+            "router426" : "tbl_dns_cache_reply"
+          },
+          "default_entry" : {
+            "action_id" : 6,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_dns_cache_reply",
+          "id" : 4,
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 427,
+            "column" : 28,
+            "source_fragment" : "dns_cache_reply(meta.cached_ip)"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [5],
+          "actions" : ["MyIngress.dns_cache_reply"],
+          "base_default_next" : "node_13",
+          "next_tables" : {
+            "MyIngress.dns_cache_reply" : "node_13"
+          },
+          "default_entry" : {
+            "action_id" : 5,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_router430",
+          "id" : 5,
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 430,
+            "column" : 28,
+            "source_fragment" : "dns_miss_counter.count(0)"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [7],
+          "actions" : ["router430"],
+          "base_default_next" : "node_13",
+          "next_tables" : {
+            "router430" : "node_13"
+          },
+          "default_entry" : {
+            "action_id" : 7,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_router441",
+          "id" : 6,
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 441,
+            "column" : 20,
+            "source_fragment" : "dns_response_counter.count(0)"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [10],
+          "actions" : ["router441"],
+          "base_default_next" : "node_15",
+          "next_tables" : {
+            "router441" : "node_15"
+          },
+          "default_entry" : {
+            "action_id" : 10,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "MyIngress.ipv4_lpm",
+          "id" : 7,
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 380,
+            "column" : 10,
+            "source_fragment" : "ipv4_lpm"
+          },
+          "key" : [
+            {
+              "match_type" : "lpm",
+              "name" : "hdr.ipv4.dstAddr",
+              "target" : ["ipv4", "dstAddr"],
+              "mask" : null
+            }
+          ],
+          "match_type" : "lpm",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [4, 1, 0],
+          "actions" : ["MyIngress.ipv4_forward", "MyIngress.drop", "NoAction"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "MyIngress.ipv4_forward" : null,
+            "MyIngress.drop" : null,
+            "NoAction" : null
+          },
+          "default_entry" : {
+            "action_id" : 1,
+            "action_const" : false,
+            "action_data" : [],
+            "action_entry_const" : false
+          }
+        },
+        {
+          "name" : "tbl_drop",
+          "id" : 8,
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 456,
+            "column" : 20,
+            "source_fragment" : "drop()"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [2],
+          "actions" : ["MyIngress.drop"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "MyIngress.drop" : null
+          },
+          "default_entry" : {
+            "action_id" : 2,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_drop_0",
+          "id" : 9,
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 461,
+            "column" : 12,
+            "source_fragment" : "drop()"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [3],
+          "actions" : ["MyIngress.drop"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "MyIngress.drop" : null
+          },
+          "default_entry" : {
+            "action_id" : 3,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        }
+      ],
+      "action_profiles" : [],
+      "conditionals" : [
+        {
+          "name" : "node_3",
+          "id" : 0,
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 398,
+            "column" : 12,
+            "source_fragment" : "hdr.ipv4.isValid()"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "d2b",
+              "left" : null,
+              "right" : {
+                "type" : "field",
+                "value" : ["ipv4", "$valid$"]
+              }
+            }
+          },
+          "true_next" : "node_4",
+          "false_next" : "tbl_drop_0"
+        },
+        {
+          "name" : "node_4",
+          "id" : 1,
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 400,
+            "column" : 16,
+            "source_fragment" : "hdr.udp.isValid()"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "d2b",
+              "left" : null,
+              "right" : {
+                "type" : "field",
+                "value" : ["udp", "$valid$"]
+              }
+            }
+          },
+          "true_next" : "node_5",
+          "false_next" : "node_15"
+        },
+        {
+          "name" : "node_5",
+          "id" : 2,
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 407,
+            "column" : 20,
+            "source_fragment" : "hdr.udp.dstPort == UDP_PORT_DNS"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["udp", "dstPort"]
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x0035"
+              }
+            }
+          },
+          "true_next" : "tbl_router408",
+          "false_next" : "node_13"
+        },
+        {
+          "name" : "node_7",
+          "id" : 3,
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 410,
+            "column" : 24,
+            "source_fragment" : "hdr.dns_name_key.isValid()"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "d2b",
+              "left" : null,
+              "right" : {
+                "type" : "field",
+                "value" : ["dns_name_key", "$valid$"]
+              }
+            }
+          },
+          "true_next" : "tbl_router411",
+          "false_next" : "node_13"
+        },
+        {
+          "name" : "node_9",
+          "id" : 4,
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 421,
+            "column" : 28,
+            "source_fragment" : "meta.cache_valid_value == 1 && ..."
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "and",
+              "left" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "==",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["scalars", "metadata.cache_valid_value"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x01"
+                  }
+                }
+              },
+              "right" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "or",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "or",
+                      "left" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : "d2b",
+                          "left" : null,
+                          "right" : {
+                            "type" : "field",
+                            "value" : ["dns_question_rest_example", "$valid$"]
+                          }
+                        }
+                      },
+                      "right" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : "d2b",
+                          "left" : null,
+                          "right" : {
+                            "type" : "field",
+                            "value" : ["dns_question_rest_ucr", "$valid$"]
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "d2b",
+                      "left" : null,
+                      "right" : {
+                        "type" : "field",
+                        "value" : ["dns_question_rest_cache", "$valid$"]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "true_next" : "tbl_router426",
+          "false_next" : "tbl_router430"
+        },
+        {
+          "name" : "node_13",
+          "id" : 5,
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 440,
+            "column" : 20,
+            "source_fragment" : "hdr.udp.srcPort == UDP_PORT_DNS && meta.replied_from_cache == 0"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "and",
+              "left" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "==",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["udp", "srcPort"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x0035"
+                  }
+                }
+              },
+              "right" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "==",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["scalars", "metadata.replied_from_cache"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x00"
+                  }
+                }
+              }
+            }
+          },
+          "true_next" : "tbl_router441",
+          "false_next" : "node_15"
+        },
+        {
+          "name" : "node_15",
+          "id" : 6,
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 450,
+            "column" : 16,
+            "source_fragment" : "meta.replied_from_cache == 1"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["scalars", "metadata.replied_from_cache"]
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x01"
+              }
+            }
+          },
+          "true_next" : null,
+          "false_next" : "node_16"
+        },
+        {
+          "name" : "node_16",
+          "id" : 7,
+          "source_info" : {
+            "filename" : "router.p4",
+            "line" : 453,
+            "column" : 20,
+            "source_fragment" : "hdr.ipv4.ttl > 1"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : ">",
+              "left" : {
+                "type" : "field",
+                "value" : ["ipv4", "ttl"]
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x01"
+              }
+            }
+          },
+          "true_next" : "MyIngress.ipv4_lpm",
+          "false_next" : "tbl_drop"
+        }
+      ]
+    },
+    {
+      "name" : "egress",
+      "id" : 1,
+      "source_info" : {
+        "filename" : "router.p4",
+        "line" : 470,
+        "column" : 8,
+        "source_fragment" : "MyEgress"
+      },
+      "init_table" : null,
+      "tables" : [],
+      "action_profiles" : [],
+      "conditionals" : []
+    }
+  ],
+  "checksums" : [
+    {
+      "name" : "cksum",
+      "id" : 0,
+      "source_info" : {
+        "filename" : "router.p4",
+        "line" : 484,
+        "column" : 8,
+        "source_fragment" : "update_checksum( ..."
+      },
+      "target" : ["ipv4", "hdrChecksum"],
+      "type" : "generic",
+      "calculation" : "calc",
+      "verify" : false,
+      "update" : true,
+      "if_cond" : {
+        "type" : "expression",
+        "value" : {
+          "op" : "d2b",
+          "left" : null,
+          "right" : {
+            "type" : "field",
+            "value" : ["ipv4", "$valid$"]
+          }
+        }
+      }
+    }
+  ],
+  "force_arith" : [],
+  "extern_instances" : [],
+  "field_aliases" : [
+    [
+      "queueing_metadata.enq_timestamp",
+      ["standard_metadata", "enq_timestamp"]
+    ],
+    [
+      "queueing_metadata.enq_qdepth",
+      ["standard_metadata", "enq_qdepth"]
+    ],
+    [
+      "queueing_metadata.deq_timedelta",
+      ["standard_metadata", "deq_timedelta"]
+    ],
+    [
+      "queueing_metadata.deq_qdepth",
+      ["standard_metadata", "deq_qdepth"]
+    ],
+    [
+      "intrinsic_metadata.ingress_global_timestamp",
+      ["standard_metadata", "ingress_global_timestamp"]
+    ],
+    [
+      "intrinsic_metadata.egress_global_timestamp",
+      ["standard_metadata", "egress_global_timestamp"]
+    ],
+    [
+      "intrinsic_metadata.mcast_grp",
+      ["standard_metadata", "mcast_grp"]
+    ],
+    [
+      "intrinsic_metadata.egress_rid",
+      ["standard_metadata", "egress_rid"]
+    ],
+    [
+      "intrinsic_metadata.priority",
+      ["standard_metadata", "priority"]
+    ]
+  ],
+  "program" : "build/router.p4i",
+  "__meta__" : {
+    "version" : [2, 23],
+    "compiler" : "https://github.com/p4lang/p4c"
+  }
+}

@@ -1,0 +1,152 @@
+# proto-file: p4/config/v1/p4info.proto
+# proto-message: p4.config.v1.P4Info
+
+pkg_info {
+  arch: "v1model"
+}
+tables {
+  preamble {
+    id: 37375156
+    name: "MyIngress.ipv4_lpm"
+    alias: "ipv4_lpm"
+  }
+  match_fields {
+    id: 1
+    name: "hdr.ipv4.dstAddr"
+    bitwidth: 32
+    match_type: LPM
+  }
+  action_refs {
+    id: 28792405
+  }
+  action_refs {
+    id: 25652968
+  }
+  action_refs {
+    id: 21257015
+  }
+  initial_default_action {
+    action_id: 25652968
+  }
+  size: 1024
+}
+actions {
+  preamble {
+    id: 21257015
+    name: "NoAction"
+    alias: "NoAction"
+    annotations: "@noWarn(\"unused\")"
+  }
+}
+actions {
+  preamble {
+    id: 25652968
+    name: "MyIngress.drop"
+    alias: "drop"
+  }
+}
+actions {
+  preamble {
+    id: 28792405
+    name: "MyIngress.ipv4_forward"
+    alias: "ipv4_forward"
+  }
+  params {
+    id: 1
+    name: "dstAddr"
+    bitwidth: 48
+  }
+  params {
+    id: 2
+    name: "srcAddr"
+    bitwidth: 48
+  }
+  params {
+    id: 3
+    name: "port"
+    bitwidth: 9
+  }
+}
+actions {
+  preamble {
+    id: 19487297
+    name: "MyIngress.dns_cache_reply"
+    alias: "dns_cache_reply"
+  }
+}
+counters {
+  preamble {
+    id: 318181597
+    name: "MyIngress.dns_query_counter"
+    alias: "dns_query_counter"
+  }
+  spec {
+    unit: PACKETS
+  }
+  size: 1024
+}
+counters {
+  preamble {
+    id: 311004314
+    name: "MyIngress.dns_response_counter"
+    alias: "dns_response_counter"
+  }
+  spec {
+    unit: PACKETS
+  }
+  size: 1024
+}
+counters {
+  preamble {
+    id: 307193812
+    name: "MyIngress.dns_hit_counter"
+    alias: "dns_hit_counter"
+  }
+  spec {
+    unit: PACKETS
+  }
+  size: 1024
+}
+counters {
+  preamble {
+    id: 315020471
+    name: "MyIngress.dns_miss_counter"
+    alias: "dns_miss_counter"
+  }
+  spec {
+    unit: PACKETS
+  }
+  size: 1024
+}
+registers {
+  preamble {
+    id: 376058342
+    name: "MyIngress.cache_valid"
+    alias: "cache_valid"
+  }
+  type_spec {
+    bitstring {
+      bit {
+        bitwidth: 1
+      }
+    }
+  }
+  size: 1024
+}
+registers {
+  preamble {
+    id: 385028824
+    name: "MyIngress.cache_ip"
+    alias: "cache_ip"
+  }
+  type_spec {
+    bitstring {
+      bit {
+        bitwidth: 32
+      }
+    }
+  }
+  size: 1024
+}
+type_info {
+}
